@@ -1014,6 +1014,7 @@ input, select {
 .add-toggle-btn {
   width: 22px;
   height: 22px;
+  padding:0;
   border-radius: 50%;
   border: 2px solid var(--green);
   background: none;
@@ -1027,6 +1028,13 @@ input, select {
   cursor: pointer;
   flex-shrink: 0;
   transition: background 0.15s;
+  box-sizing: border-box;
+}
+
+.add-toggle-btn span {
+  display: block;
+  line-height: 0;
+  transform: translateY(-1px);
 }
 
 .add-toggle-btn:hover {

@@ -277,12 +277,4 @@ const REQUIREMENTS = {
 };
 
 // ============ DEFAULT PLAN ============
-const DEFAULT_PLAN = {
-  F24: ['BYUI 101', 'CSE 110', 'ENG 150', 'ECEN 106', 'WDD 130', 'REL 250C'],
-  W25: ['CSE 111', 'CSE 130', 'CSE 170', 'WDD 131', 'CSE 199R', 'REL 200C'],
-  S25: ['CSE 131', 'CSE 210', 'NUTR 150', 'ITM 220', 'REL 225C', 'ART 231'],
-  F25: ['CSE 212', 'CSE 230', 'CSE 310', 'MATH 221', 'POLSC 150', 'REL 275C'],
-  W26: ['CSE 231', 'CSE 300', 'BUS 301', 'CSE 370', 'WDD 231', 'SOC 111', 'REL 351'],
-  F26: ['CSE 232', 'ITM 300', 'CSE 399R', 'CSE 340', 'CSE 325', 'REL 352'],
-  W27: ['CSE 331', 'CSE 499a', 'WDD 331R', 'WDD 360', 'REL 333'],
-};
+const DEFAULT_PLAN = {};

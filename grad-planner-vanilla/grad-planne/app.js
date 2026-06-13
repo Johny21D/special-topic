@@ -236,7 +236,7 @@ function renderRequirementsContent() {
     return `
       <div class="course-row-item">
         <div class="row-left">
-          <button class="add-toggle-btn ${inPlan ? 'is-added' : ''}" data-course="${id}" title="${inPlan ? 'Already planned' : 'Add to current semester'}">
+          <button class="add-toggle-btn ${inPlan ? 'is-added' : ''}" data-course="${id}" ...><span>${inPlan ? '−' : '+'}</span></button>
             ${inPlan ? '−' : '+'}
           </button>
           <div class="row-info">
@@ -415,6 +415,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // page navigation
   document.getElementById('view-plan-btn').addEventListener('click', showPlanPage);
   document.getElementById('back-to-myplans').addEventListener('click', showMyPlans);
+  // create alternate plan button
+const createAltBtn = document.querySelector('.create-alt-btn');
+if (createAltBtn) {
+  createAltBtn.addEventListener('click', () => {
+    alert('Alternate plan created! (This is a demo — alternate plans aren\'t fully implemented yet.)');
+  });
+}
 
   // requirements <-> search
   document.getElementById('open-search-btn').addEventListener('click', showSearchView);
