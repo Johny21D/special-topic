@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BYU-Idaho I-Plan - Grad Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <span class="byu">BYU</span>
+        <span class="idaho">IDAHO</span>
+      </div>
+      <span class="app-name">I-Plan</span>
+    </div>
+    <div class="topbar-right">
+      <button class="menu-btn">⊞ Menu ▾</button>
+      <button class="help-btn">?</button>
+      <div class="user-pill">
+        <div class="avatar">JS</div>
+        <div class="user-text">
+          <span class="hello">Hello,</span>
+          <span class="name">D Johny Suy</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MY PLANS PAGE ================= -->
+  <main id="myplans-page" class="page">
+    <div class="page-inner">
+      <div class="page-header">
+        <h1 class="page-title">My Plans</h1>
+        <div class="header-btns">
+          <button class="btn outline-btn">Compare Plans</button>
+          <button class="btn outline-btn">All Plan Histories</button>
+        </div>
+      </div>
+
+      <!-- Declared Plan -->
+      <div class="plan-card">
+        <span class="plan-badge badge-green">Declared Plan</span>
+        <div class="plan-body">
+          <div class="plan-top">
+            <div class="plan-left">
+              <div class="plan-title-row">
+                <span class="chevron">∧</span>
+                <h2 class="plan-name">Plan 1</h2>
+              </div>
+              <div class="plan-meta">
+                <div class="meta-block">
+                  <span class="meta-label">DEGREE</span>
+                  <span class="meta-value">Bachelor of Science in Software Engineering - UG25</span>
+                  <a href="#" class="meta-link">Change Major</a>
+                </div>
+                <div class="meta-block">
+                  <span class="meta-label">CERTIFICATE</span>
+                  <span class="meta-value">C165 Software Design Certificate - UG25</span>
+                  <a href="#" class="meta-link">Change Certificate</a>
+                </div>
+              </div>
+            </div>
+            <div class="plan-right">
+              <span class="status-label">Plan Status :</span>
+              <span class="status-inprogress">In-Progress</span>
+              <button class="dots-btn">⋮</button>
+            </div>
+          </div>
+          <div class="plan-actions">
+            <button class="btn outline-btn">DUPLICATE</button>
+            <button class="btn green-btn" id="view-plan-btn">VIEW PLAN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alternate Plan -->
+      <div class="plan-card">
+        <span class="plan-badge badge-gray">Alternate Plan</span>
+        <div class="plan-body">
+          <div class="plan-top">
+            <div class="plan-left">
+              <div class="plan-title-row">
+                <span class="chevron">∨</span>
+                <h2 class="plan-name-alt">Plan_9/9/2025 11:27:56 AM_443_UG25</h2>
+              </div>
+            </div>
+            <div class="plan-right">
+              <span class="status-label">Plan Status:</span>
+              <span class="status-advisor">Advisor Recommendation</span>
+              <button class="btn dark-btn">View Plan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="create-alt-btn">+ Create Alternate Plan</button>
+    </div>
+  </main>
+
+  <!-- ================= PLAN VIEW PAGE ================= -->
+  <main id="plan-page" class="page hidden">
+    <div class="page-inner plan-page-inner">
+      <div class="breadcrumb">
+        <span class="breadcrumb-link" id="back-to-myplans">My Plans</span>
+        <span class="breadcrumb-sep">›</span>
+        <span>Plan 1</span>
+      </div>
+
+      <div class="plan-header">
+        <span class="plan-name-label">Plan Name</span>
+        <div class="plan-name-row">
+          <h1 class="big-plan-name">Plan 1</h1>
+          <span class="declared-badge">Declared Plan</span>
+        </div>
+      </div>
+
+      <div class="layout">
+        <!-- LEFT: My Plan -->
+        <div class="left-col">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">My Plan</span>
+              <div class="header-right">
+                <div class="credits-info">
+                  <span class="credits-label">CREDITS PER SEMESTER</span>
+                  <span class="credits-range">12 – 16 credit(s) <a href="#">Edit</a></span>
+                  <a href="#" class="copy-link">Copy Planning</a>
+                </div>
+                <button class="download-btn">⬇ Download PDF</button>
+              </div>
+            </div>
+
+            <!-- Semester Carousel -->
+            <div class="carousel-wrap">
+              <a href="#" class="view-all">View All Semesters</a>
+              <div class="carousel">
+                <button class="carousel-arrow" id="carousel-prev">‹</button>
+                <div class="carousel-track" id="carousel-track"></div>
+                <button class="carousel-arrow" id="carousel-next">›</button>
+              </div>
+            </div>
+
+            <!-- Active Semester -->
+            <div class="active-sem">
+              <h2 class="sem-title" id="active-sem-title"></h2>
+              <span class="on-track">ON TRACK</span>
+            </div>
+
+            <!-- Course List -->
+            <div class="course-list" id="course-list"></div>
+
+            <div class="total-row">
+              Total Credits: <strong class="total-num" id="total-credits">0</strong>
+            </div>
+
+            <div class="panel-footer">
+              <a href="#" class="footer-link">All Classes Planned?</a>
+              <button class="validate-btn" id="validate-btn">VALIDATE</button>
+              <div class="footer-links2">
+                <a href="#" class="footer-link2">⟳ View Plan History</a>
+                <a href="#" class="footer-link2" id="reset-btn">⟳ Reset My Plan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Requirements -->
+        <div class="right-col">
+          <div class="panel">
+            <!-- Requirements view -->
+            <div id="requirements-view">
+              <div class="panel-header">
+                <h2 class="panel-title">Requirements &amp; Courses</h2>
+                <div class="header-right">
+                  <button class="search-btn" id="open-search-btn">Search Courses 🔍</button>
+                  <a href="#" class="avail-link">View Course Availability</a>
+                </div>
+              </div>
+
+              <div class="main-tabs" id="main-tabs"></div>
+              <div class="sub-tabs" id="sub-tabs"></div>
+
+              <div class="content">
+                <h3 class="section-title" id="section-title"></h3>
+
+                <div class="progress-wrap">
+                  <div class="progress-bar">
+                    <div class="bar-completed" id="bar-completed"></div>
+                    <div class="bar-planned" id="bar-planned"></div>
+                  </div>
+                  <span class="progress-total" id="progress-total"></span>
+                </div>
+
+                <div class="legend">
+                  <span class="legend-item"><span class="dot dot-blue"></span> Completed</span>
+                  <span class="legend-item"><span class="dot dot-green"></span> Planned/Enrolled</span>
+                  <span class="legend-item"><span class="dot-outline"></span> Unplanned</span>
+                </div>
+
+                <div class="add-wrap">
+                  <button class="add-course-btn" id="add-course-btn">🔍 Search Courses</button>
+                </div>
+
+                <div class="status-tabs">
+                  <span class="status-tab status-tab-active">Planned</span>
+                  <span class="status-tab">Completed</span>
+                  <span class="status-tab">Excess</span>
+                </div>
+
+                <div class="course-rows" id="course-rows"></div>
+              </div>
+            </div>
+
+            <!-- Search view -->
+            <div id="search-view" class="hidden">
+              <div class="search-wrap">
+                <button class="back-btn" id="back-to-reqs">← Back to Requirements</button>
+
+                <form class="search-bar" id="search-form">
+                  <span class="search-icon">🔍</span>
+                  <input class="search-input" id="search-input" placeholder="Search courses..." autocomplete="off" />
+                  <button type="submit" class="search-submit-btn">Search</button>
+                </form>
+
+                <div class="filter-row">
+                  <span class="filter-label">or Search by Category</span>
+                  <select class="select" id="filter-dept">
+                    <option value="">Department</option>
+                  </select>
+                  <select class="select" id="filter-type">
+                    <option value="">Course Type</option>
+                  </select>
+                  <select class="select" id="filter-credits">
+                    <option value="">Credits</option>
+                  </select>
+                  <button class="apply-btn" id="apply-filters">Apply</button>
+                  <button class="clear-btn" id="clear-filters">Clear All</button>
+                </div>
+
+                <div class="table-wrap">
+                  <table class="course-table">
+                    <thead>
+                      <tr>
+                        <th>Course</th>
+                        <th>Credits</th>
+                        <th>Title</th>
+                        <th>Department</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="search-results"></tbody>
+                  </table>
+                </div>
+
+                <div class="load-more-wrap" id="load-more-wrap">
+                  <button class="load-more-btn" id="load-more-btn">Load More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
